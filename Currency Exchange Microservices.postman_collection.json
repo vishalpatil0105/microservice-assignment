@@ -1,0 +1,392 @@
+{
+	"info": {
+		"_postman_id": "afb2fd5a-5c77-4d23-bd6c-5bf0abe817e6",
+		"name": "Currency Exchange Microservices",
+		"description": "A collection for testing the Currency Exchange microservices application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22881823"
+	},
+	"item": [
+		{
+			"name": "API Gateway Tests",
+			"item": [
+				{
+					"name": "Gateway Test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/gateway-test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"gateway-test"
+							]
+						},
+						"description": "Test endpoint to verify API Gateway is working"
+					},
+					"response": []
+				},
+				{
+					"name": "HttpBin Test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/api/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"get"
+							]
+						},
+						"description": "Test routing to external HttpBin service"
+					},
+					"response": []
+				},
+				{
+					"name": "Authentication Test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/authenticate/test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"authenticate",
+								"test"
+							]
+						},
+						"description": "Test the authentication endpoint"
+					},
+					"response": []
+				}
+			],
+			"description": "Test endpoints to verify API Gateway functionality"
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Get JWT Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user\",\n    \"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8765/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"authenticate"
+							]
+						},
+						"description": "Get a JWT token for authentication"
+					},
+					"response": []
+				}
+			],
+			"description": "Authentication related endpoints"
+		},
+		{
+			"name": "Currency Exchange Service",
+			"item": [
+				{
+					"name": "Direct Exchange (No Auth)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/direct/currency-exchange/from/USD/to/INR",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"direct",
+								"currency-exchange",
+								"from",
+								"USD",
+								"to",
+								"INR"
+							]
+						},
+						"description": "Get currency exchange rate without authentication"
+					},
+					"response": []
+				},
+				{
+					"name": "Currency Exchange (Authenticated)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/currency-exchange/from/USD/to/INR",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"currency-exchange",
+								"from",
+								"USD",
+								"to",
+								"INR"
+							]
+						},
+						"description": "Get currency exchange rate with JWT authentication"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Exchange Rate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 10006,\n    \"currencyFrom\": \"GBP\",\n    \"currencyTo\": \"INR\",\n    \"conversionMultiple\": 103.25,\n    \"environment\": 0\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/currency-exchange/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"currency-exchange",
+								"create"
+							]
+						},
+						"description": "Create a new currency exchange rate"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Exchange Rate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 10006,\n    \"currencyFrom\": \"GBP\",\n    \"currencyTo\": \"INR\",\n    \"conversionMultiple\": 116.25,\n    \"environment\": 0\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8765/currency-exchange/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"currency-exchange",
+								"update"
+							]
+						},
+						"description": "Update an existing currency exchange rate"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Exchange Rate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/currency-exchange/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"currency-exchange",
+								"1"
+							]
+						},
+						"description": "Delete a currency exchange rate by ID"
+					},
+					"response": []
+				}
+			],
+			"description": "Currency Exchange Service endpoints"
+		},
+		{
+			"name": "Currency Conversion Service",
+			"item": [
+				{
+					"name": "Currency Conversion (Authenticated)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/currency-conversion/from/USD/to/INR/quantity/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"currency-conversion",
+								"from",
+								"USD",
+								"to",
+								"INR",
+								"quantity",
+								"10"
+							]
+						},
+						"description": "Get currency conversion with JWT authentication"
+					},
+					"response": []
+				},
+				{
+					"name": "Direct Currency Conversion Service",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8100/currency-conversion/from/USD/to/INR/quantity/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8100",
+							"path": [
+								"currency-conversion",
+								"from",
+								"USD",
+								"to",
+								"INR",
+								"quantity",
+								"10"
+							]
+						},
+						"description": "Direct access to Currency Conversion microservice"
+					},
+					"response": []
+				}
+			],
+			"description": "Currency Conversion Service endpoints"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Extract JWT token from authentication response",
+					"if (pm.response.code === 200 && pm.request.url.toString().includes('/authenticate')) {",
+					"    var jsonData = pm.response.json();",
+					"    if (jsonData && jsonData.token) {",
+					"        pm.environment.set(\"jwt_token\", jsonData.token);",
+					"        console.log(\"JWT token saved to environment variable\");",
+					"    }",
+					"}"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "jwt_token",
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQzOTc2NDUzLCJleHAiOjE3NDQwNjI4NTN9.yu6ylZCsMkRSiipNlUZDhBvuMwEFs8vCm1Iz73731oE",
+			"type": "string"
+		}
+	]
+}

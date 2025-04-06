@@ -35,7 +35,10 @@ public class CurrencyConversionController {
         );
     }
 
-    public CurrencyConversion fallbackCalculateCurrencyConversion(String from, String to, BigDecimal quantity,
+    public CurrencyConversion fallbackCalculateCurrencyConversion(
+            String from, 
+            String to, 
+            BigDecimal quantity,
             Throwable t) {
         return new CurrencyConversion(0L, from, to, BigDecimal.ZERO, quantity, BigDecimal.ZERO, 0);
     }
