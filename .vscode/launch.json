@@ -1,0 +1,54 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ConfigServerApplication<config-server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.vishal.configserver.ConfigServerApplication",
+      "projectName": "config-server",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-EurekaServerApplication<eureka-server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.vishal.eurekaserver.EurekaServerApplication",
+      "projectName": "eureka-server",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-CurrencyConversionServiceApplication<currency-conversion-service>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.vishal.currencyconversionservice.CurrencyConversionServiceApplication",
+      "projectName": "currency-conversion-service",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-CurrencyExchangeServiceApplication<currency-exchange-service>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.vishal.currencyexchangeservice.CurrencyExchangeServiceApplication",
+      "projectName": "currency-exchange-service",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ApiGatewayApplication<api-gateway>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.vishal.apigateway.ApiGatewayApplication",
+      "projectName": "api-gateway",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

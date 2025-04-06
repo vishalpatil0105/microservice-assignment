@@ -1,0 +1,8 @@
+C:\Users\visha\OneDrive\Desktop\Microservicesproject\mciro-service-assignment\currency-exchange\api-gateway\src\main\java\com\vishal\apigateway\ApiGatewayApplication.java
+C:\Users\visha\OneDrive\Desktop\Microservicesproject\mciro-service-assignment\currency-exchange\api-gateway\src\main\java\com\vishal\apigateway\config\RouteConfig.java
+C:\Users\visha\OneDrive\Desktop\Microservicesproject\mciro-service-assignment\currency-exchange\api-gateway\src\main\java\com\vishal\apigateway\controller\TestController.java
+C:\Users\visha\OneDrive\Desktop\Microservicesproject\mciro-service-assignment\currency-exchange\api-gateway\src\main\java\com\vishal\apigateway\security\AuthController.java
+C:\Users\visha\OneDrive\Desktop\Microservicesproject\mciro-service-assignment\currency-exchange\api-gateway\src\main\java\com\vishal\apigateway\security\JwtAuthenticationFilter.java
+C:\Users\visha\OneDrive\Desktop\Microservicesproject\mciro-service-assignment\currency-exchange\api-gateway\src\main\java\com\vishal\apigateway\security\JwtConfig.java
+C:\Users\visha\OneDrive\Desktop\Microservicesproject\mciro-service-assignment\currency-exchange\api-gateway\src\main\java\com\vishal\apigateway\security\SecurityConfig.java
+C:\Users\visha\OneDrive\Desktop\Microservicesproject\mciro-service-assignment\currency-exchange\api-gateway\src\main\java\com\vishal\apigateway\security\UserService.java

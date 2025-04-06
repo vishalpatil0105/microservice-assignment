@@ -1,0 +1,8 @@
+com\vishal\apigateway\controller\TestController.class
+com\vishal\apigateway\security\UserService.class
+com\vishal\apigateway\ApiGatewayApplication.class
+com\vishal\apigateway\security\AuthController.class
+com\vishal\apigateway\security\JwtAuthenticationFilter.class
+com\vishal\apigateway\config\RouteConfig.class
+com\vishal\apigateway\security\JwtConfig.class
+com\vishal\apigateway\security\SecurityConfig.class

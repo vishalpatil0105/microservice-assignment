@@ -1,0 +1,7 @@
+com\vishal\currencyconversionservice\CurrencyConversionServiceApplication.class
+com\vishal\currencyconversionservice\CurrencyConversionController.class
+com\vishal\currencyconversionservice\CurrencyExchangeProxy.class
+com\vishal\currencyconversionservice\security\JwtRequestInterceptor.class
+com\vishal\currencyconversionservice\CurrencyConversion.class
+com\vishal\currencyconversionservice\config\FeignConfig.class
+com\vishal\currencyconversionservice\security\AuthenticationService.class

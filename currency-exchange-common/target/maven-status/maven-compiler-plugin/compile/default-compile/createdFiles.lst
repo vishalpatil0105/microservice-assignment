@@ -1,0 +1,4 @@
+com\vishal\currencyexchangecommon\security\AuthResponse.class
+com\vishal\currencyexchangecommon\security\JwtUtil.class
+com\vishal\currencyexchangecommon\CurrencyExchange.class
+com\vishal\currencyexchangecommon\security\AuthRequest.class
